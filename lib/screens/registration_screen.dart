@@ -2,22 +2,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:medibuddy/blocs/auth_bloc.dart';
 import 'package:medibuddy/constants/colors.dart';
 import 'package:medibuddy/screens/home_screen.dart';
-import 'package:medibuddy/screens/registration_screen.dart';
-import 'package:provider/provider.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
-  static String id = "login_screen";
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({Key? key}) : super(key: key);
+  static String id = "registration_screen";
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegistrationScreenState extends State<RegistrationScreen> {
   final _auth = FirebaseAuth.instance;
   // ignore: unused_field
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
@@ -26,7 +22,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    AuthBloc authBloc = Provider.of<AuthBloc>(context);
     MediaQueryData queryData;
     queryData = MediaQuery.of(context);
     return Scaffold(
@@ -54,9 +49,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration:
                           const InputDecoration().copyWith(labelText: "Email"),
                       maxLines: 1,
+                      keyboardType: TextInputType.emailAddress,
                       onChanged: (value) {
                         setState(() {
                           email = value;
+                          if (kDebugMode) {
+                            print(value);
+                          }
                         });
                       },
                     ),
@@ -71,6 +70,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       onChanged: (value) {
                         setState(() {
                           password = value;
+                          if (kDebugMode) {
+                            print(password + email);
+                          }
                         });
                       },
                       decoration: const InputDecoration()
@@ -83,13 +85,47 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextButton(
                     onPressed: () async {
                       try {
-                        final currentuser = await authBloc
-                            .loginWithEmailPassword(email, password);
-
-                        if (currentuser) {
+                        final newUser =
+                            await _auth.createUserWithEmailAndPassword(
+                                email: email.trim(), password: password);
+                        if (newUser != null) {
                           // ignore: use_build_context_synchronously
                           Navigator.pushNamedAndRemoveUntil(
                               context, HomeScreen.id, (route) => false);
+                        }
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'email-already-in-use') {
+                          return showDialog(
+                            context: context,
+                            builder: (e) => AlertDialog(
+                              title: const Text("Alert !"),
+                              content: Text("$email is already in use"),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(e).pop();
+                                  },
+                                  child: const Text("OK"),
+                                ),
+                              ],
+                            ),
+                          );
+                        } else if (e.code == 'weak-password') {
+                          return showDialog(
+                            context: context,
+                            builder: (e) => AlertDialog(
+                              title: const Text("Alert !"),
+                              content: const Text("Your password is too weak"),
+                              actions: [
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(e).pop();
+                                  },
+                                  child: const Text("Ok"),
+                                ),
+                              ],
+                            ),
+                          );
                         }
                       } catch (e) {
                         if (kDebugMode) {
@@ -107,8 +143,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           queryData.size.height * 0.06),
                     ),
                     child: const Text(
-                      'Login',
-                      style: TextStyle(color: Colors.white),
+                      'Register',
+                      style: TextStyle(color: kBackgroundColor),
                     ),
                   ),
                   Padding(
@@ -116,44 +152,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: RichText(
                       text: TextSpan(children: [
                         const TextSpan(
-                            text: 'New member? ',
-                            style: TextStyle(
-                              color: Colors.black,
-                            )),
+                          text: 'Already have account? ',
+                          style: TextStyle(
+                            color: kTextColor,
+                          ),
+                        ),
                         TextSpan(
-                            text: 'Register',
+                            text: 'Login',
                             style: const TextStyle(
                               color: kBottomContainerColor,
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                Navigator.pushNamed(
-                                    context, RegistrationScreen.id);
+                                Navigator.pop(context);
                               }),
                       ]),
-                    ),
-                  ),
-                  const Text("Or, Sign in with:\n"),
-                  IconButton(
-                    onPressed: () async {
-                      try {
-                        final currentuser = await authBloc.loginWithGoogle();
-
-                        if (currentuser) {
-                          // ignore: use_build_context_synchronously
-                          Navigator.pushNamedAndRemoveUntil(
-                              context, HomeScreen.id, (route) => false);
-                        }
-                      } catch (e) {
-                        if (kDebugMode) {
-                          print(e);
-                        }
-                      }
-                    },
-                    icon: const Icon(
-                      FontAwesomeIcons.google,
-                      size: 30.0,
-                      color: kPrimaryColor,
                     ),
                   ),
                 ],
