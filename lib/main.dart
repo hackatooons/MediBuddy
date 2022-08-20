@@ -9,7 +9,6 @@ import 'package:medibuddy/screens/onboarding_screen.dart';
 import 'package:medibuddy/screens/bmi_screen.dart';
 import 'package:medibuddy/screens/ppg_screen.dart';
 import 'package:medibuddy/screens/settings_screen.dart';
-import 'package:medibuddy/screens/license_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'blocs/auth_bloc.dart';
