@@ -5,6 +5,7 @@ import 'package:medibuddy/constants/colors.dart';
 import 'package:medibuddy/components/image_card.dart';
 import 'package:medibuddy/components/notification_card.dart';
 import 'package:medibuddy/components/heading.dart';
+import 'package:medibuddy/screens/bmi_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -123,7 +124,9 @@ class IconCards extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ImageCard(
-                onPress: () {}, text: "BMI", image: "assets/images/BMI.png"),
+                onPress: () {
+                  Navigator.pushNamed(context, BMICalculator.id);
+                }, text: "BMI", image: "assets/images/BMI.png"),
             ImageCard(
                 onPress: () {},
                 text: "Counsel",
