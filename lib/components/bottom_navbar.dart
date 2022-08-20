@@ -9,6 +9,7 @@ class BottomNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       shape: const CircularNotchedRectangle(),
+      notchMargin: 5,
       color: kPrimaryColor,
       child: IconTheme(
         data: IconThemeData(color: Theme.of(context).colorScheme.onPrimary),

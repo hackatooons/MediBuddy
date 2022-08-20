@@ -5,6 +5,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:medibuddy/blocs/auth_bloc.dart';
 import 'package:medibuddy/screens/home_screen.dart';
 import 'package:medibuddy/screens/login_screen.dart';
+import 'package:provider/provider.dart';
 
 class OnBoardingPage extends StatefulWidget {
   static const id = 'onboarding_screen';
@@ -17,13 +18,23 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final introKey = GlobalKey<IntroductionScreenState>();
-  final AuthBloc _authBloc = AuthBloc();
+
   @override
   void initState() {
     super.initState();
-    if (_authBloc.isLoggedIn) {
-      Navigator.pushReplacementNamed(context, HomeScreen.id);
-    }
+    Future(() => {
+          _auth.currentUser?.getIdToken().then(
+            (value) {
+              if (kDebugMode) {
+                print(value);
+              }
+              // Push home screen if user is logged in
+              if (value.isNotEmpty) {
+                Navigator.pushNamed(context, HomeScreen.id);
+              }
+            },
+          )
+        });
   }
 
   void _onIntroEnd(context) {

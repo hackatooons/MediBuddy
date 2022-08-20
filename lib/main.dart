@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:medibuddy/constants/colors.dart';
 import 'package:medibuddy/screens/counsel_screen.dart';
 import 'package:medibuddy/screens/home_screen.dart';
+import 'package:medibuddy/screens/license_screen.dart';
 import 'package:medibuddy/screens/login_screen.dart';
 import 'package:medibuddy/screens/onboarding_screen.dart';
 import 'package:medibuddy/screens/bmi_screen.dart';
 import 'package:medibuddy/screens/ppg_screen.dart';
+import 'package:medibuddy/screens/settings_screen.dart';
+import 'package:medibuddy/screens/license_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'blocs/auth_bloc.dart';
@@ -31,19 +34,11 @@ class MyApp extends StatelessWidget {
         title: 'MediBuddy',
         theme: ThemeData(
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          colorScheme: const ColorScheme(
-            primary: kPrimaryColor,
-            secondary: kSecondaryColor,
-            surface: kBackgroundColor,
-            background: kBackgroundColor,
-            error: kPrimaryColor,
-            onPrimary: Colors.white,
-            onSecondary: Colors.black38,
-            onSurface: kTextColor,
-            onBackground: kSecondaryColor,
-            onError: Colors.redAccent,
-            brightness: Brightness.light,
-          ),
+          colorScheme: ThemeData.light().colorScheme.copyWith(
+                primary: kPrimaryColor,
+                secondary: kSecondaryColor,
+                onSecondary: kTextColor,
+              ),
           fontFamily: 'Roboto',
           // default text style
         ),
@@ -55,6 +50,10 @@ class MyApp extends StatelessWidget {
           BMICalculator.id: (context) => const BMICalculator(),
           Counsel.id: (context) => const Counsel(),
           Ppgscreen.id: (context) => const Ppgscreen(),
+          SettingsScreen.id: (context) => const SettingsScreen(),
+          LicenseScreen.id: (context) => const LicenseScreen(
+                versionName: '1.0.0',
+              ),
         },
       ),
     );
