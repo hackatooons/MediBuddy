@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     // print(Sentiment.analysis('you beautiful 😒', emoji: true));
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
         title: const Text('MediBuddy'),
         actions: <Widget>[
@@ -33,9 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: const BottomNavbar(),
       backgroundColor: kPrimaryColor,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushNamed(context, 'task_screen');
-        },
+        onPressed: () {},
         child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

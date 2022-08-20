@@ -3,6 +3,7 @@ import 'package:medibuddy/blocs/auth_bloc.dart';
 import 'package:medibuddy/constants/colors.dart';
 import 'package:medibuddy/screens/home_screen.dart';
 import 'package:medibuddy/screens/onboarding_screen.dart';
+import 'package:medibuddy/screens/settings_screen.dart';
 import 'package:provider/provider.dart';
 
 class SideDrawer extends StatelessWidget {
@@ -82,7 +83,9 @@ class SideDrawer extends StatelessWidget {
                 Text('Settings'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, SettingsScreen.id);
+            },
           ),
           ListTile(
             title: Row(
