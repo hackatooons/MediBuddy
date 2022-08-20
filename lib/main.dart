@@ -5,6 +5,7 @@ import 'package:medibuddy/screens/counsel_screen.dart';
 import 'package:medibuddy/screens/home_screen.dart';
 import 'package:medibuddy/screens/login_screen.dart';
 import 'package:medibuddy/screens/onboarding_screen.dart';
+import 'package:medibuddy/screens/heart_predict_screen.dart';
 import 'package:medibuddy/screens/bmi_screen.dart';
 import 'package:medibuddy/screens/ppg_screen.dart';
 import 'package:provider/provider.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
           BMICalculator.id: (context) => const BMICalculator(),
           Counsel.id: (context) => const Counsel(),
           Ppgscreen.id: (context) => const Ppgscreen(),
+          HeartPredict.id: (context) => const HeartPredict(),
         },
       ),
     );

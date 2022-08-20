@@ -7,6 +7,7 @@ import 'package:medibuddy/components/notification_card.dart';
 import 'package:medibuddy/components/heading.dart';
 import 'package:medibuddy/screens/bmi_screen.dart';
 import 'package:medibuddy/screens/counsel_screen.dart';
+import 'package:medibuddy/screens/heart_predict_screen.dart';
 import 'package:medibuddy/screens/ppg_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -161,7 +162,9 @@ class IconCards extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ImageCard(
-                onPress: () {},
+                onPress: () {
+                  Navigator.pushNamed(context, HeartPredict.id);
+                },
                 text: "Heart Failure",
                 image: "assets/images/HeartFailure.png"),
             ImageCard(
