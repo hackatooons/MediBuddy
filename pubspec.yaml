@@ -43,6 +43,9 @@ dependencies:
   introduction_screen: ^3.0.2
   font_awesome_flutter: ^10.1.0
   share_plus: ^4.0.10+1
+  sentiment_dart: ^0.0.5
+  percent_indicator: ^4.2.2
+  carousel_slider: ^4.1.1
 
 dev_dependencies:
   flutter_test:

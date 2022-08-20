@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants/colors.dart';
+import 'package:medibuddy/screens/counsel_screen.dart';
 import 'package:medibuddy/screens/home_screen.dart';
 import 'package:medibuddy/screens/login_screen.dart';
 import 'package:medibuddy/screens/onboarding_screen.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
           HomeScreen.id: (context) => const HomeScreen(),
           LoginScreen.id: (context) => const LoginScreen(),
           BMICalculator.id: (context) => const BMICalculator(),
+          Counsel.id: (context) => const Counsel(),
         },
       ),
     );
