@@ -6,6 +6,7 @@ import 'package:medibuddy/components/image_card.dart';
 import 'package:medibuddy/components/notification_card.dart';
 import 'package:medibuddy/components/heading.dart';
 import 'package:medibuddy/screens/bmi_screen.dart';
+import 'package:medibuddy/screens/counsel_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -128,7 +129,9 @@ class IconCards extends StatelessWidget {
                   Navigator.pushNamed(context, BMICalculator.id);
                 }, text: "BMI", image: "assets/images/BMI.png"),
             ImageCard(
-                onPress: () {},
+                onPress: () {
+                  Navigator.pushNamed(context, Counsel.id);
+                },
                 text: "Counsel",
                 image: "assets/images/counsel.png"),
           ],
