@@ -22,9 +22,6 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('MediBuddy'),
-        actions: <Widget>[
-          IconButton(icon: const Icon(Icons.notifications), onPressed: () {}),
-        ],
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),

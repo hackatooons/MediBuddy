@@ -16,9 +16,6 @@ class MyProgressIndicator extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('MediBuddy'),
-        actions: <Widget>[
-          IconButton(icon: const Icon(Icons.notifications), onPressed: () {}),
-        ],
       ),
       body: SafeArea(
         child: Column(

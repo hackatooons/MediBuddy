@@ -30,9 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
       extendBody: true,
       appBar: AppBar(
         title: const Text('MediBuddy'),
-        actions: <Widget>[
-          IconButton(icon: const Icon(Icons.notifications), onPressed: () {}),
-        ],
       ),
       drawer: const SideDrawer(),
       bottomNavigationBar: const BottomNavbar(),
