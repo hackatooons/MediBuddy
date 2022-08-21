@@ -69,7 +69,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Full Name"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.text,
                 onChanged: (value) {
                   setState(() {
                     name = value;
@@ -89,7 +89,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 autofocus: false,
                 decoration: const InputDecoration().copyWith(labelText: "Age"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['age'] = int.parse(value);
@@ -110,7 +110,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Radius Mean"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['radius_mean'] = double.parse(value);
@@ -131,7 +131,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Texture Mean"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['texture_mean'] = double.parse(value);
@@ -152,7 +152,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Perimeter Mean"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['perimeter_mean'] = double.parse(value);
@@ -173,7 +173,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Area Mean"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['area_mean'] = double.parse(value);
@@ -194,7 +194,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Smoothness Mean"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['smoothness_mean'] = double.parse(value);
@@ -215,7 +215,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Compactness Mean"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['compactness_mean'] = double.parse(value);
@@ -236,7 +236,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Concavity Mean"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['concavity_mean'] = double.parse(value);
@@ -257,7 +257,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Concave Points Mean"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['concave_points_mean'] = double.parse(value);
@@ -278,7 +278,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Symmetry Mean"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['symmetry_mean'] = double.parse(value);
@@ -299,7 +299,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Fractal Dimension Mean"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['fractal_dimension_mean'] = double.parse(value);
@@ -320,7 +320,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Radius se"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['radius_se'] = double.parse(value);
@@ -341,7 +341,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Texture se"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['texture_se'] = double.parse(value);
@@ -362,7 +362,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Perimeter se"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['perimeter_se'] = double.parse(value);
@@ -383,7 +383,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Area se"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['area_se'] = double.parse(value);
@@ -404,7 +404,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Smoothness se"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['smoothness_se'] = double.parse(value);
@@ -425,7 +425,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Compactness se"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['compactness_se'] = double.parse(value);
@@ -446,7 +446,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Concavity se"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['concavity_se'] = double.parse(value);
@@ -467,7 +467,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Concave Points se"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['concave_points_se'] = double.parse(value);
@@ -488,7 +488,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Symmetry se"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['symmetry_se'] = double.parse(value);
@@ -509,7 +509,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Fractal Dimension se"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['fractal_dimension_se'] = double.parse(value);
@@ -530,7 +530,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Radius Worst"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['radius_worst'] = double.parse(value);
@@ -551,7 +551,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Texture Worst"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['texture_worst'] = double.parse(value);
@@ -572,7 +572,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Perimeter Worst"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['perimeter_worst'] = double.parse(value);
@@ -593,7 +593,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration:
                     const InputDecoration().copyWith(labelText: "Area Worst"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['area_worst'] = double.parse(value);
@@ -614,7 +614,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Smoothness Worst"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['smoothness_worst'] = double.parse(value);
@@ -635,7 +635,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Compactness Worst"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['compactness_worst'] = double.parse(value);
@@ -656,7 +656,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Concavity Worst"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['concavity_worst'] = double.parse(value);
@@ -677,7 +677,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Concave Points Worst"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['concave points_worst'] = double.parse(value);
@@ -698,7 +698,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Symmetry Worst"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['symmetry_worst'] = double.parse(value);
@@ -719,7 +719,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Fractal Dimension Worst"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
                     data['fractal_dimension_worst'] = double.parse(value);
@@ -854,4 +854,3 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
     );
   }
 }
-
