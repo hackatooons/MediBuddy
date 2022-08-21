@@ -11,6 +11,7 @@ import 'package:medibuddy/screens/bmi_screen.dart';
 import 'package:medibuddy/screens/ppg_screen.dart';
 import 'package:medibuddy/screens/settings_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:medibuddy/screens/breast_cancer_prediction.dart';
 
 import 'blocs/auth_bloc.dart';
 
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
           Counsel.id: (context) => const Counsel(),
           Ppgscreen.id: (context) => const Ppgscreen(),
           HeartPredict.id: (context) => const HeartPredict(),
+          BreastCancerPredict.id: (context) => const BreastCancerPredict(),
           SettingsScreen.id: (context) => const SettingsScreen(),
           LicenseScreen.id: (context) => const LicenseScreen(
                 versionName: '1.0.0',

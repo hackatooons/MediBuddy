@@ -6,6 +6,7 @@ import 'package:medibuddy/components/image_card.dart';
 import 'package:medibuddy/components/notification_card.dart';
 import 'package:medibuddy/components/heading.dart';
 import 'package:medibuddy/screens/bmi_screen.dart';
+import 'package:medibuddy/screens/breast_cancer_prediction.dart';
 import 'package:medibuddy/screens/counsel_screen.dart';
 import 'package:medibuddy/screens/heart_predict_screen.dart';
 import 'package:medibuddy/screens/ppg_screen.dart';
@@ -167,7 +168,9 @@ class IconCards extends StatelessWidget {
                 text: "Heart Failure",
                 image: "assets/images/HeartFailure.png"),
             ImageCard(
-                onPress: () {},
+                onPress: () {
+                  Navigator.pushNamed(context, BreastCancerPredict.id);
+                },
                 text: "Breast Cancer",
                 image: "assets/images/BreastCancer.png"),
           ],

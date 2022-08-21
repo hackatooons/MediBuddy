@@ -30,13 +30,13 @@ class _HeartPredictState extends State<HeartPredict> {
         children: <Widget>[
           Padding(
             padding:
-                const EdgeInsets.only(top: 20, left: 25, right: 25, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
                 decoration: const InputDecoration()
-                    .copyWith(labelText: "Enter your age"),
+                    .copyWith(labelText: "Full Name"),
                 maxLines: 1,
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {
@@ -51,13 +51,33 @@ class _HeartPredictState extends State<HeartPredict> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20, bottom: 20),
+            padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+            child: SizedBox(
+              width: queryData.size.width * 0.8,
+              child: TextFormField(
+                autofocus: false,
+                decoration: const InputDecoration().copyWith(labelText: "Age"),
+                maxLines: 1,
+                keyboardType: TextInputType.emailAddress,
+                onChanged: (value) {
+                  setState(() {
+                    email = value;
+                    if (kDebugMode) {
+                      print(value);
+                    }
+                  });
+                },
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20),
             child: SizedBox(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Do you have Anaemia?',
+                    'Do you have Anaemia',
                     style: TextStyle(
                       fontSize: 18,
                       color: kTextColor,
@@ -67,23 +87,26 @@ class _HeartPredictState extends State<HeartPredict> {
                   const SizedBox(
                     width: 10,
                   ),
-                  ToggleSwitch(
-                    minWidth: 55.0,
-                    minHeight: 35.0,
-                    cornerRadius: 18.0,
-                    activeBgColors: const [
-                      [Color.fromARGB(255, 231, 120, 120)],
-                      [Color.fromARGB(255, 108, 179, 111)]
-                    ],
-                    inactiveBgColor: const Color.fromARGB(255, 214, 207, 207),
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: const ['Yes', 'No'],
-                    onToggle: (index) {
-                      if (kDebugMode) {
-                        print('switched to: $index');
-                      }
-                    },
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15),
+                    child: ToggleSwitch(
+                      minWidth: 50.0,
+                      minHeight: 30.0,
+                      // cornerRadius: 18.0,
+                      activeBgColors: const [
+                        [Color.fromARGB(255, 231, 120, 120)],
+                        [Color.fromARGB(255, 108, 179, 111)]
+                      ],
+                      inactiveBgColor: Color.fromARGB(255, 236, 230, 230),
+                      initialLabelIndex: 1,
+                      totalSwitches: 2,
+                      labels: const ['Yes', 'No'],
+                      onToggle: (index) {
+                        if (kDebugMode) {
+                          print('switched to: $index');
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -91,13 +114,13 @@ class _HeartPredictState extends State<HeartPredict> {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(top: 20, left: 25, right: 25, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
                 decoration: const InputDecoration().copyWith(
-                    labelText: "Creatinine Phosphokinase Level in blood "),
+                    labelText: "Creatinine Phosphokinase"),
                 maxLines: 1,
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {
@@ -112,13 +135,13 @@ class _HeartPredictState extends State<HeartPredict> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20, bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: SizedBox(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Do you have Diabetes?',
+                    'Do you have Diabetes',
                     style: TextStyle(
                       fontSize: 18,
                       color: kTextColor,
@@ -128,23 +151,26 @@ class _HeartPredictState extends State<HeartPredict> {
                   const SizedBox(
                     width: 10,
                   ),
-                  ToggleSwitch(
-                    minWidth: 55.0,
-                    minHeight: 35.0,
-                    cornerRadius: 18.0,
-                    activeBgColors: const [
-                      [Color.fromARGB(255, 231, 120, 120)],
-                      [Color.fromARGB(255, 108, 179, 111)]
-                    ],
-                    inactiveBgColor: const Color.fromARGB(255, 214, 207, 207),
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: const ['Yes', 'No'],
-                    onToggle: (index) {
-                      if (kDebugMode) {
-                        print('switched to: $index');
-                      }
-                    },
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15),
+                    child: ToggleSwitch(
+                      minWidth: 50.0,
+                      minHeight: 30.0,
+                      // cornerRadius: 18.0,
+                      activeBgColors: const [
+                        [Color.fromARGB(255, 231, 120, 120)],
+                        [Color.fromARGB(255, 108, 179, 111)]
+                      ],
+                      inactiveBgColor: Color.fromARGB(255, 236, 230, 230),
+                      initialLabelIndex: 1,
+                      totalSwitches: 2,
+                      labels: const ['Yes', 'No'],
+                      onToggle: (index) {
+                        if (kDebugMode) {
+                          print('switched to: $index');
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -152,13 +178,13 @@ class _HeartPredictState extends State<HeartPredict> {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(top: 20, left: 25, right: 25, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
                 decoration: const InputDecoration()
-                    .copyWith(labelText: "Ejection Fraction (EF) in blood"),
+                    .copyWith(labelText: "Ejection Fraction"),
                 maxLines: 1,
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {
@@ -173,13 +199,13 @@ class _HeartPredictState extends State<HeartPredict> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20, bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: SizedBox(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'High blood Pressure?',
+                    'High blood Pressure',
                     style: TextStyle(
                       fontSize: 18,
                       color: kTextColor,
@@ -189,23 +215,26 @@ class _HeartPredictState extends State<HeartPredict> {
                   const SizedBox(
                     width: 10,
                   ),
-                  ToggleSwitch(
-                    minWidth: 55.0,
-                    minHeight: 35.0,
-                    cornerRadius: 18.0,
-                    activeBgColors: const [
-                      [Color.fromARGB(255, 231, 120, 120)],
-                      [Color.fromARGB(255, 108, 179, 111)]
-                    ],
-                    inactiveBgColor: const Color.fromARGB(255, 214, 207, 207),
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: const ['Yes', 'No'],
-                    onToggle: (index) {
-                      if (kDebugMode) {
-                        print('switched to: $index');
-                      }
-                    },
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15),
+                    child: ToggleSwitch(
+                      minWidth: 50.0,
+                      minHeight: 30.0,
+                      // cornerRadius: 18.0,
+                      activeBgColors: const [
+                        [Color.fromARGB(255, 231, 120, 120)],
+                        [Color.fromARGB(255, 108, 179, 111)]
+                      ],
+                      inactiveBgColor: Color.fromARGB(255, 236, 230, 230),
+                      initialLabelIndex: 1,
+                      totalSwitches: 2,
+                      labels: const ['Yes', 'No'],
+                      onToggle: (index) {
+                        if (kDebugMode) {
+                          print('switched to: $index');
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -213,13 +242,13 @@ class _HeartPredictState extends State<HeartPredict> {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(top: 20, left: 25, right: 25, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
                 decoration: const InputDecoration()
-                    .copyWith(labelText: "Enter Platelet Count"),
+                    .copyWith(labelText: "Platelet"),
                 maxLines: 1,
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {
@@ -235,13 +264,13 @@ class _HeartPredictState extends State<HeartPredict> {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(top: 20, left: 25, right: 25, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
                 decoration: const InputDecoration()
-                    .copyWith(labelText: "Serum Creatinine Level your blood"),
+                    .copyWith(labelText: "Serum Creatinine"),
                 maxLines: 1,
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {
@@ -257,13 +286,13 @@ class _HeartPredictState extends State<HeartPredict> {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(top: 20, left: 25, right: 25, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
                 decoration: const InputDecoration()
-                    .copyWith(labelText: "Serum Sodium Level in blood"),
+                    .copyWith(labelText: "Serum Sodium"),
                 maxLines: 1,
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {
@@ -278,13 +307,13 @@ class _HeartPredictState extends State<HeartPredict> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20, bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: SizedBox(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Mention Your Sex',
+                    'Mention Sex ( F / M)',
                     style: TextStyle(
                       fontSize: 18,
                       color: kTextColor,
@@ -294,36 +323,39 @@ class _HeartPredictState extends State<HeartPredict> {
                   const SizedBox(
                     width: 10,
                   ),
-                  ToggleSwitch(
-                    minWidth: 55.0,
-                    minHeight: 35.0,
-                    cornerRadius: 18.0,
-                    activeBgColors: const [
-                      [Color.fromARGB(255, 231, 120, 120)],
-                      [Color.fromARGB(255, 108, 179, 111)]
-                    ],
-                    inactiveBgColor: const Color.fromARGB(255, 214, 207, 207),
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: const ['Female', 'Male'],
-                    onToggle: (index) {
-                      if (kDebugMode) {
-                        print('switched to: $index');
-                      }
-                    },
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: ToggleSwitch(
+                      minWidth: 50.0,
+                      minHeight: 30.0,
+                      // cornerRadius: 18.0,
+                      activeBgColors: const [
+                        [Color.fromARGB(255, 231, 120, 120)],
+                        [Color.fromARGB(255, 108, 179, 111)]
+                      ],
+                      inactiveBgColor: Color.fromARGB(255, 236, 230, 230),
+                      initialLabelIndex: 1,
+                      totalSwitches: 2,
+                      labels: const ['Yes', 'No'],
+                      onToggle: (index) {
+                        if (kDebugMode) {
+                          print('switched to: $index');
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20, bottom: 20),
+            padding: const EdgeInsets.only(bottom: 20),
             child: SizedBox(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'You do smoking?',
+                    'Do You do Smoking',
                     style: TextStyle(
                       fontSize: 18,
                       color: kTextColor,
@@ -333,23 +365,26 @@ class _HeartPredictState extends State<HeartPredict> {
                   const SizedBox(
                     width: 10,
                   ),
-                  ToggleSwitch(
-                    minWidth: 55.0,
-                    minHeight: 35.0,
-                    cornerRadius: 18.0,
-                    activeBgColors: const [
-                      [Color.fromARGB(255, 231, 120, 120)],
-                      [Color.fromARGB(255, 108, 179, 111)]
-                    ],
-                    inactiveBgColor: const Color.fromARGB(255, 214, 207, 207),
-                    initialLabelIndex: 1,
-                    totalSwitches: 2,
-                    labels: const ['Yes', 'No'],
-                    onToggle: (index) {
-                      if (kDebugMode) {
-                        print('switched to: $index');
-                      }
-                    },
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: ToggleSwitch(
+                      minWidth: 50.0,
+                      minHeight: 30.0,
+                      // cornerRadius: 18.0,
+                      activeBgColors: const [
+                        [Color.fromARGB(255, 231, 120, 120)],
+                        [Color.fromARGB(255, 108, 179, 111)]
+                      ],
+                      inactiveBgColor: Color.fromARGB(255, 236, 230, 230),
+                      initialLabelIndex: 1,
+                      totalSwitches: 2,
+                      labels: const ['Yes', 'No'],
+                      onToggle: (index) {
+                        if (kDebugMode) {
+                          print('switched to: $index');
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -357,13 +392,13 @@ class _HeartPredictState extends State<HeartPredict> {
           ),
           Padding(
             padding:
-                const EdgeInsets.only(top: 20, left: 25, right: 25, bottom: 20),
+                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
                 decoration: const InputDecoration()
-                    .copyWith(labelText: "Number of times you had stroke"),
+                    .copyWith(labelText: "Stroke Occurances "),
                 maxLines: 1,
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (value) {
@@ -377,20 +412,23 @@ class _HeartPredictState extends State<HeartPredict> {
               ),
             ),
           ),
-          TextButton(
-            onPressed: () {},
-            style: TextButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50.0),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+                backgroundColor: kPrimaryColor,
+                elevation: 1.0,
+                minimumSize: Size(
+                    queryData.size.width * 0.6, queryData.size.height * 0.06),
               ),
-              backgroundColor: kPrimaryColor,
-              elevation: 1.0,
-              minimumSize: Size(
-                  queryData.size.width * 0.6, queryData.size.height * 0.06),
-            ),
-            child: const Text(
-              'Submit',
-              style: TextStyle(color: kBackgroundColor),
+              child: const Text(
+                'Submit',
+                style: TextStyle(color: kBackgroundColor),
+              ),
             ),
           ),
         ],
