@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 const API_URI = 'http://20.198.106.110';
 
 class PredictionModel {
-  Future<dynamic> getHeartPrediction(Object body) async {
+  Future<dynamic> getHeartPrediction(Map body) async {
     NetworkHandler networkHelper =
         NetworkHandler(Uri.parse('$API_URI/predict_heart_disease'), body);
 
@@ -13,7 +13,7 @@ class PredictionModel {
     return predictionData;
   }
 
-  Future<dynamic> getBreastPrediction(Object body) async {
+  Future<dynamic> getBreastPrediction(Map body) async {
     NetworkHandler networkHelper =
         NetworkHandler(Uri.parse('$API_URI/predict_breast_cancer'), body);
 

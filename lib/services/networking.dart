@@ -5,7 +5,7 @@ class NetworkHandler {
   NetworkHandler(this.url, this.body);
 
   final Uri url;
-  final Object body;
+  final Map body;
 
   Future getData() async {
     http.Response response = await http.post(url, body: json.encode(body));

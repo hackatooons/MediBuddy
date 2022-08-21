@@ -12,8 +12,21 @@ class HeartPredict extends StatefulWidget {
 }
 
 class _HeartPredictState extends State<HeartPredict> {
-  String email = "";
-  String password = "";
+  String name = "";
+  Map data = {
+    "age": 18,
+    "anaemia": 0,
+    "creatinine_phosphokinase": 0.0,
+    "diabetes": 0,
+    "ejection_fraction": 0.0,
+    "high_blood_pressure": 0,
+    "platelets": 0.0,
+    "serum_creatinine": 0.0,
+    "serum_sodium": 0.0,
+    "sex": 0,
+    "smoking": 0,
+    "time": 0,
+  };
   @override
   Widget build(BuildContext context) {
     MediaQueryData queryData;
@@ -29,19 +42,18 @@ class _HeartPredictState extends State<HeartPredict> {
         physics: const BouncingScrollPhysics(),
         children: <Widget>[
           Padding(
-            padding:
-                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+            padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
-                decoration: const InputDecoration()
-                    .copyWith(labelText: "Full Name"),
+                decoration:
+                    const InputDecoration().copyWith(labelText: "Full Name"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.text,
                 onChanged: (value) {
                   setState(() {
-                    email = value;
+                    name = value;
                     if (kDebugMode) {
                       print(value);
                     }
@@ -58,10 +70,10 @@ class _HeartPredictState extends State<HeartPredict> {
                 autofocus: false,
                 decoration: const InputDecoration().copyWith(labelText: "Age"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
-                    email = value;
+                    data['age'] = int.parse(value);
                     if (kDebugMode) {
                       print(value);
                     }
@@ -97,7 +109,7 @@ class _HeartPredictState extends State<HeartPredict> {
                         [Color.fromARGB(255, 231, 120, 120)],
                         [Color.fromARGB(255, 108, 179, 111)]
                       ],
-                      inactiveBgColor: Color.fromARGB(255, 236, 230, 230),
+                      inactiveBgColor: const Color.fromARGB(255, 236, 230, 230),
                       initialLabelIndex: 1,
                       totalSwitches: 2,
                       labels: const ['Yes', 'No'],
@@ -105,6 +117,9 @@ class _HeartPredictState extends State<HeartPredict> {
                         if (kDebugMode) {
                           print('switched to: $index');
                         }
+                        setState(() {
+                          data['anaemia'] = int.parse(index.toString());
+                        });
                       },
                     ),
                   ),
@@ -113,19 +128,18 @@ class _HeartPredictState extends State<HeartPredict> {
             ),
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+            padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
-                decoration: const InputDecoration().copyWith(
-                    labelText: "Creatinine Phosphokinase"),
+                decoration: const InputDecoration()
+                    .copyWith(labelText: "Creatinine Phosphokinase"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
-                    email = value;
+                    data['creatinine_phosphokinase'] = double.parse(value);
                     if (kDebugMode) {
                       print(value);
                     }
@@ -169,6 +183,9 @@ class _HeartPredictState extends State<HeartPredict> {
                         if (kDebugMode) {
                           print('switched to: $index');
                         }
+                        setState(() {
+                          data['diabetes'] = int.parse(index.toString());
+                        });
                       },
                     ),
                   ),
@@ -177,8 +194,7 @@ class _HeartPredictState extends State<HeartPredict> {
             ),
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+            padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
@@ -186,13 +202,13 @@ class _HeartPredictState extends State<HeartPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Ejection Fraction"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
-                    email = value;
                     if (kDebugMode) {
                       print(value);
                     }
+                    data['ejection_fraction'] = double.parse(value);
                   });
                 },
               ),
@@ -233,6 +249,10 @@ class _HeartPredictState extends State<HeartPredict> {
                         if (kDebugMode) {
                           print('switched to: $index');
                         }
+                        setState(() {
+                          data['high_blood_pressure'] =
+                              int.parse(index.toString());
+                        });
                       },
                     ),
                   ),
@@ -241,19 +261,18 @@ class _HeartPredictState extends State<HeartPredict> {
             ),
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+            padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
-                decoration: const InputDecoration()
-                    .copyWith(labelText: "Platelet"),
+                decoration:
+                    const InputDecoration().copyWith(labelText: "Platelet"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
-                    email = value;
+                    data['platelets'] = double.parse(value);
                     if (kDebugMode) {
                       print(value);
                     }
@@ -263,8 +282,7 @@ class _HeartPredictState extends State<HeartPredict> {
             ),
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+            padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
@@ -272,10 +290,10 @@ class _HeartPredictState extends State<HeartPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Serum Creatinine"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
-                    email = value;
+                    data['serum_creatinine'] = double.parse(value);
                     if (kDebugMode) {
                       print(value);
                     }
@@ -285,19 +303,18 @@ class _HeartPredictState extends State<HeartPredict> {
             ),
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+            padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
                 autofocus: false,
-                decoration: const InputDecoration()
-                    .copyWith(labelText: "Serum Sodium"),
+                decoration:
+                    const InputDecoration().copyWith(labelText: "Serum Sodium"),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
-                    email = value;
+                    data['serum_sodium'] = double.parse(value);
                     if (kDebugMode) {
                       print(value);
                     }
@@ -333,7 +350,7 @@ class _HeartPredictState extends State<HeartPredict> {
                         [Color.fromARGB(255, 231, 120, 120)],
                         [Color.fromARGB(255, 108, 179, 111)]
                       ],
-                      inactiveBgColor: Color.fromARGB(255, 236, 230, 230),
+                      inactiveBgColor: const Color.fromARGB(255, 236, 230, 230),
                       initialLabelIndex: 1,
                       totalSwitches: 2,
                       labels: const ['Yes', 'No'],
@@ -341,6 +358,9 @@ class _HeartPredictState extends State<HeartPredict> {
                         if (kDebugMode) {
                           print('switched to: $index');
                         }
+                        setState(() {
+                          data['sex'] = int.parse(index.toString());
+                        });
                       },
                     ),
                   ),
@@ -383,6 +403,9 @@ class _HeartPredictState extends State<HeartPredict> {
                         if (kDebugMode) {
                           print('switched to: $index');
                         }
+                        setState(() {
+                          data['smoking'] = int.parse(index.toString());
+                        });
                       },
                     ),
                   ),
@@ -391,8 +414,7 @@ class _HeartPredictState extends State<HeartPredict> {
             ),
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+            padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
             child: SizedBox(
               width: queryData.size.width * 0.8,
               child: TextFormField(
@@ -400,10 +422,10 @@ class _HeartPredictState extends State<HeartPredict> {
                 decoration: const InputDecoration()
                     .copyWith(labelText: "Stroke Occurances "),
                 maxLines: 1,
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.number,
                 onChanged: (value) {
                   setState(() {
-                    email = value;
+                    data['time'] = int.parse(value);
                     if (kDebugMode) {
                       print(value);
                     }
@@ -415,7 +437,9 @@ class _HeartPredictState extends State<HeartPredict> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                print(data);
+              },
               style: TextButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50.0),
