@@ -26,6 +26,13 @@ class _BMICalculatorState extends State<BMICalculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      appBar: AppBar(
+        title: const Text('BMI Calculator'),
+        leading: const BackButton(
+          color: kSecondaryColor,
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: <Widget>[

@@ -68,12 +68,7 @@ class _PpgscreenState extends State<Ppgscreen>
         leading: const BackButton(
           color: Colors.white,
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {},
-          ),
-        ],
+        title: const Text('PPG'),
       ),
       backgroundColor: Colors.white,
       drawer: const SideDrawer(),

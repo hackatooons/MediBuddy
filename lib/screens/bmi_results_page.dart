@@ -20,21 +20,19 @@ class ResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      appBar: AppBar(
+        title: const Text('BMI Result'),
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () => Navigator.pop(context),
+        ),
+        elevation: 0,
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.all(15.0),
-              alignment: Alignment.bottomLeft,
-              child: const Text(
-                'Your Result',
-                textAlign: TextAlign.left,
-                style: kTitleTextStyle,
-              ),
-            ),
-          ),
           Expanded(
             flex: 5,
             child: ReusableCard(

@@ -31,6 +31,13 @@ class _CounselState extends State<Counsel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      appBar: AppBar(
+        title: const Text('Counsel'),
+        leading: const BackButton(
+          color: kSecondaryColor,
+        ),
+      ),
       drawer: const SideDrawer(),
       bottomNavigationBar: const BottomNavbar(),
       backgroundColor: kBackgroundColor,
@@ -44,12 +51,15 @@ class _CounselState extends State<Counsel> {
             scrollDirection: Axis.vertical,
           ),
           items: [
-            CounselMain(
-              onPress: () {
-                buttonCarouselController.nextPage(
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.ease);
-              },
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: CounselMain(
+                onPress: () {
+                  buttonCarouselController.nextPage(
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.ease);
+                },
+              ),
             ),
             ...kCounselQuestions.asMap().entries.map((i) {
               return Builder(
