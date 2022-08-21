@@ -8,7 +8,11 @@ class NetworkHandler {
   final Map body;
 
   Future getData() async {
-    http.Response response = await http.post(url, body: json.encode(body));
+    var jsonBody = json.encode(body);
+    // post request
+    var response = await http.post(url, body: jsonBody, headers: {
+      'Content-Type': 'application/json',
+    });
 
     if (response.statusCode == 200) {
       String data = response.body;

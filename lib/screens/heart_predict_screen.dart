@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants/colors.dart';
 import 'package:flutter/foundation.dart';
+import 'package:medibuddy/services/prediction_model.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class HeartPredict extends StatefulWidget {
@@ -437,8 +439,11 @@ class _HeartPredictState extends State<HeartPredict> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: TextButton(
-              onPressed: () {
-                print(data);
+              onPressed: () async {
+                PredictionModel model = PredictionModel();
+                var res = await model.getHeartPrediction(data);
+                res = double.parse(res['prediction']) / 100;
+                await _showFullModal(context, res);
               },
               style: TextButton.styleFrom(
                 shape: RoundedRectangleBorder(
@@ -457,6 +462,104 @@ class _HeartPredictState extends State<HeartPredict> {
           ),
         ],
       ),
+    );
+  }
+
+  _showFullModal(context, data) {
+    showGeneralDialog(
+      context: context,
+      barrierDismissible: false,
+      barrierLabel: "Disease Prediction data",
+      transitionDuration: const Duration(milliseconds: 500),
+      pageBuilder: (_, __, ___) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text('Heart Failure Prediction'),
+            actions: <Widget>[
+              IconButton(
+                  icon: const Icon(Icons.notifications), onPressed: () {}),
+            ],
+          ),
+          body: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                CircularPercentIndicator(
+                  //circular progress indicator
+                  radius: 120.0, //radius for circle
+                  lineWidth: 21.0, //width of circle line
+                  animation:
+                      true, //animate when it shows progress indicator first
+                  percent: data,
+                  //percentage of circle
+                  center: Text(
+                    data < 0
+                        ? 'Negative :"('
+                        : (data * 100).toStringAsFixed(2) + ' %',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 28.0),
+                  ), //center text, you can set Icon as well
+                  footer: const Padding(
+                    padding: EdgeInsets.all(28.0),
+                    child: Text(
+                      "Your Heart Failure Risk is",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22.0,
+                          color: kTextColor,
+                          fontFamily: 'Nunito'),
+                    ),
+                  ), //footer text
+                  backgroundColor: const Color.fromARGB(
+                      255, 207, 235, 232), //backround of progress bar
+                  circularStrokeCap: CircularStrokeCap.round,
+                  //if data negative then red else green //corner shape of progress bar at start/end
+                  progressColor: data < 0.3
+                      ? Colors.green
+                      : Colors.red, //color of progress bar
+                ),
+                if (data == 0)
+                  const Padding(
+                    padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                    child: Text(
+                      'You are not suffering from Heart Failure ✌ 💕',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22.0,
+                          color: kTextColor,
+                          fontFamily: 'Nunito'),
+                    ),
+                  ),
+                if (data != 0)
+                  data < 0.3
+                      ? const Padding(
+                          padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                          child: Text(
+                            'You are not suffering from Heart Failure ✌ 💕',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22.0,
+                                color: kTextColor,
+                                fontFamily: 'Nunito'),
+                          ),
+                        )
+                      : const Padding(
+                          padding: EdgeInsets.only(left: 20.0, right: 20.0),
+                          child: Text(
+                            'You are suffering from Heart Failure 😥',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22.0,
+                                color: kTextColor,
+                                fontFamily: 'Nunito'),
+                          ),
+                        ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

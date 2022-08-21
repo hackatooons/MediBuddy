@@ -10,6 +10,7 @@ class PredictionModel {
         NetworkHandler(Uri.parse('$API_URI/predict_heart_disease'), body);
 
     var predictionData = await networkHelper.getData();
+    print(predictionData);
     return predictionData;
   }
 
