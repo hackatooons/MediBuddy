@@ -61,7 +61,7 @@ class CounselMain extends StatelessWidget {
           child: Text(
             'Our team has the passion, experience, and comprehensive training to help people identify and conquer a variety of mental health issues.',
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 20,
               color: kTextColor,
               fontFamily: 'Nunito',
             ),
