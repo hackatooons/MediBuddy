@@ -14,6 +14,12 @@ class MyProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text('MediBuddy'),
+          actions: <Widget>[
+            IconButton(icon: const Icon(Icons.notifications), onPressed: () {}),
+          ],
+        ),
         body: SafeArea(
             child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
