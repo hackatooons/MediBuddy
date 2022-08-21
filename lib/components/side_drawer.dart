@@ -54,9 +54,9 @@ class SideDrawer extends StatelessWidget {
             onTap: () {
               String? currentRoute = ModalRoute.of(context)?.settings.name;
               if (currentRoute != HomeScreen.id) {
-                Navigator.pushNamed(context, HomeScreen.id);
+                Navigator.pushReplacementNamed(context, HomeScreen.id);
               }
-              Navigator.pop(context);
+              // Navigator.pop(context);
             },
           ),
           ListTile(
