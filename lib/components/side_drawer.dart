@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:medibuddy/blocs/auth_bloc.dart';
 import 'package:medibuddy/constants/colors.dart';
@@ -28,7 +29,9 @@ class SideDrawer extends StatelessWidget {
             currentAccountPicture: GestureDetector(
               child: authBloc.profilePicUrl != null
                   ? CircleAvatar(
-                      backgroundImage: NetworkImage(authBloc.profilePicUrl),
+                      backgroundImage: CachedNetworkImageProvider(
+                        authBloc.profilePicUrl,
+                      ),
                     )
                   : const Icon(
                       Icons.person,
