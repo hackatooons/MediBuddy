@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medibuddy/blocs/auth_bloc.dart';
 import 'package:medibuddy/components/bottom_navbar.dart';
 import 'package:medibuddy/components/side_drawer.dart';
 import 'package:medibuddy/constants/colors.dart';
@@ -10,6 +11,7 @@ import 'package:medibuddy/screens/breast_cancer_prediction.dart';
 import 'package:medibuddy/screens/counsel_screen.dart';
 import 'package:medibuddy/screens/heart_predict_screen.dart';
 import 'package:medibuddy/screens/ppg_screen.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -22,6 +24,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    AuthBloc authBloc = Provider.of<AuthBloc>(context);
     // print(Sentiment.analysis('you beautiful 😒', emoji: true));
     return Scaffold(
       extendBody: true,
@@ -49,9 +52,9 @@ class _HomeScreenState extends State<HomeScreen> {
               0,
               MediaQuery.of(context).size.height / 25,
             ),
-            child: const Text(
-              'Welcome\nUser!',
-              style: TextStyle(
+            child: Text(
+              'Welcome\n${authBloc.name != "" ? authBloc.name.split(' ')[0] : ""}!',
+              style: const TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
