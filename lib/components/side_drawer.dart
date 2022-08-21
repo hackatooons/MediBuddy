@@ -6,6 +6,7 @@ import 'package:medibuddy/screens/home_screen.dart';
 import 'package:medibuddy/screens/onboarding_screen.dart';
 import 'package:medibuddy/screens/settings_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SideDrawer extends StatelessWidget {
   const SideDrawer({Key? key}) : super(key: key);
@@ -76,7 +77,12 @@ class SideDrawer extends StatelessWidget {
                 Text('Help'),
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              launchUrlString(
+                'mailto:gupta.srijan94@gmail.com?subject=MediBuddy Help',
+                mode: LaunchMode.externalApplication,
+              );
+            },
           ),
           ListTile(
             title: Row(
