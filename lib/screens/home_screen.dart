@@ -77,36 +77,36 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          Container(
-            padding: const EdgeInsets.all(35.0),
-            decoration: const BoxDecoration(
-              color: kBackgroundColor,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Heading(
-                  text: 'Notifications',
-                  icon: Icons.notifications,
-                  onPress: () {},
-                ),
-                const Divider(
-                  color: kBackgroundColor,
-                ),
-                const NotificationCard(
-                  title: 'New Task',
-                  subtitle: 'You have a new task',
-                ),
-                const NotificationCard(
-                  title: 'New Task',
-                  subtitle: 'You have a new task',
-                ),
-                const NotificationCard(
-                  title: 'New Task',
-                ),
-              ],
-            ),
-          ),
+          // Container(
+          //   padding: const EdgeInsets.all(35.0),
+          //   decoration: const BoxDecoration(
+          //     color: kBackgroundColor,
+          //   ),
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: <Widget>[
+          //       Heading(
+          //         text: 'Notifications',
+          //         icon: Icons.notifications,
+          //         onPress: () {},
+          //       ),
+          //       const Divider(
+          //         color: kBackgroundColor,
+          //       ),
+          //       const NotificationCard(
+          //         title: 'New Task',
+          //         subtitle: 'You have a new task',
+          //       ),
+          //       const NotificationCard(
+          //         title: 'New Task',
+          //         subtitle: 'You have a new task',
+          //       ),
+          //       const NotificationCard(
+          //         title: 'New Task',
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );
