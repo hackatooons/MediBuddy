@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:medibuddy/constants/colors.dart';
 import 'package:medibuddy/screens/counsel_screen.dart';
 import 'package:medibuddy/screens/home_screen.dart';
@@ -15,9 +16,18 @@ import 'package:medibuddy/screens/breast_cancer_prediction.dart';
 
 import 'blocs/auth_bloc.dart';
 
+void enableEdgeToEdge({bool enable = true}) {
+  ///Necessary for edge to edge
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(systemNavigationBarColor: Colors.white),
+  );
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+}
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (Firebase.apps.isEmpty) await Firebase.initializeApp();
+  enableEdgeToEdge();
   runApp(const MyApp());
 }
 
