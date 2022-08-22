@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -56,11 +56,15 @@ class AuthBloc extends ChangeNotifier {
       user = userCredential.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-credential') {
-        print("Invalid credential");
+        if (kDebugMode) {
+          print("Invalid credential");
+        }
       }
       setLoginProgress(false);
     } catch (e) {
-      print("Error: $e");
+      if (kDebugMode) {
+        print("Error: $e");
+      }
     }
     setLoginProgress(false);
 
@@ -78,10 +82,14 @@ class AuthBloc extends ChangeNotifier {
         await saveDataToFirestore();
       }
 
-      print("User logged in");
+      if (kDebugMode) {
+        print("User logged in");
+      }
       await saveUserDataToSp();
     } else {
-      print("User not logged in");
+      if (kDebugMode) {
+        print("User not logged in");
+      }
     }
     return isLoggedIn;
   }
@@ -110,11 +118,15 @@ class AuthBloc extends ChangeNotifier {
         user = userCredential.user;
       } on FirebaseAuthException catch (e) {
         if (e.code == 'invalid-credential') {
-          print("Invalid credential");
+          if (kDebugMode) {
+            print("Invalid credential");
+          }
         }
         setLoginProgress(false);
       } catch (e) {
-        print("Error: $e");
+        if (kDebugMode) {
+          print("Error: $e");
+        }
       }
       setLoginProgress(false);
 
@@ -132,15 +144,21 @@ class AuthBloc extends ChangeNotifier {
           await saveDataToFirestore();
         }
 
-        print("User logged in");
+        if (kDebugMode) {
+          print("User logged in");
+        }
         await saveUserDataToSp();
       } else {
-        print("User not logged in");
+        if (kDebugMode) {
+          print("User not logged in");
+        }
       }
 
       setLoginProgress(false);
     } else {
-      print("Login cancelled");
+      if (kDebugMode) {
+        print("Login cancelled");
+      }
       setLoginProgress(false);
     }
     return isLoggedIn;
@@ -212,10 +230,12 @@ class AuthBloc extends ChangeNotifier {
     _email = "";
 
     // Logout from auth providers
-    await _googleSignIn.signOut();
+    _googleSignIn.signOut();
     _firebaseAuth.signOut();
 
-    print("User logged out");
+    if (kDebugMode) {
+      print("User logged out");
+    }
     notifyListeners();
   }
 

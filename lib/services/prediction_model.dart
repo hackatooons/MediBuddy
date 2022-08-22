@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:medibuddy/services/networking.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 
+// ignore: constant_identifier_names
 const API_URI = 'http://20.198.106.110';
 
 class PredictionModel {
@@ -10,7 +12,9 @@ class PredictionModel {
         NetworkHandler(Uri.parse('$API_URI/predict_heart_disease'), body);
 
     var predictionData = await networkHelper.getData();
-    print(predictionData);
+    if (kDebugMode) {
+      print(predictionData);
+    }
     return predictionData;
   }
 

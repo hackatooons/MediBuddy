@@ -174,7 +174,7 @@ class _HeartPredictState extends State<HeartPredict> {
                         [Color.fromARGB(255, 231, 120, 120)],
                         [Color.fromARGB(255, 108, 179, 111)]
                       ],
-                      inactiveBgColor: Color.fromARGB(255, 236, 230, 230),
+                      inactiveBgColor: const Color.fromARGB(255, 236, 230, 230),
                       initialLabelIndex: 1,
                       totalSwitches: 2,
                       labels: const ['Yes', 'No'],
@@ -240,7 +240,7 @@ class _HeartPredictState extends State<HeartPredict> {
                         [Color.fromARGB(255, 231, 120, 120)],
                         [Color.fromARGB(255, 108, 179, 111)]
                       ],
-                      inactiveBgColor: Color.fromARGB(255, 236, 230, 230),
+                      inactiveBgColor: const Color.fromARGB(255, 236, 230, 230),
                       initialLabelIndex: 1,
                       totalSwitches: 2,
                       labels: const ['Yes', 'No'],
@@ -394,7 +394,7 @@ class _HeartPredictState extends State<HeartPredict> {
                         [Color.fromARGB(255, 231, 120, 120)],
                         [Color.fromARGB(255, 108, 179, 111)]
                       ],
-                      inactiveBgColor: Color.fromARGB(255, 236, 230, 230),
+                      inactiveBgColor: const Color.fromARGB(255, 236, 230, 230),
                       initialLabelIndex: 1,
                       totalSwitches: 2,
                       labels: const ['Yes', 'No'],
@@ -440,6 +440,7 @@ class _HeartPredictState extends State<HeartPredict> {
                 PredictionModel model = PredictionModel();
                 var res = await model.getHeartPrediction(data);
                 res = double.parse(res['prediction']) / 100;
+                // ignore: use_build_context_synchronously
                 await _showFullModal(context, res);
               },
               style: TextButton.styleFrom(

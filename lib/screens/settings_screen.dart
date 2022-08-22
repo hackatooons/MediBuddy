@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medibuddy/constants/colors.dart';
 import 'package:medibuddy/screens/license_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void toggleDarkMode(bool value) {
     setState(() {
       isDarkModeEnabled = !isDarkModeEnabled;
-      print(isDarkModeEnabled);
+      debugPrint(isDarkModeEnabled.toString());
     });
   }
 
@@ -25,7 +26,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text('Settings'),
-        backgroundColor: Colors.transparent,
       ),
       body: ListView(
         physics: const ClampingScrollPhysics(
@@ -43,7 +43,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           //   height: 1,
           // ),
           ListTile(
-            title: Text('Licenses'),
+            title: const Text('Licenses'),
             onTap: () {
               Navigator.pushNamed(context, LicenseScreen.id);
             },

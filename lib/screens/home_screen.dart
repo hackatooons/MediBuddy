@@ -4,7 +4,6 @@ import 'package:medibuddy/components/bottom_navbar.dart';
 import 'package:medibuddy/components/side_drawer.dart';
 import 'package:medibuddy/constants/colors.dart';
 import 'package:medibuddy/components/image_card.dart';
-import 'package:medibuddy/components/notification_card.dart';
 import 'package:medibuddy/components/heading.dart';
 import 'package:medibuddy/screens/bmi_screen.dart';
 import 'package:medibuddy/screens/breast_cancer_prediction.dart';

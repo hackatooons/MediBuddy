@@ -28,17 +28,13 @@ class SideDrawer extends StatelessWidget {
               style: const TextStyle(color: kTextColor),
             ),
             currentAccountPicture: GestureDetector(
-              child: authBloc.profilePicUrl != null
-                  ? CircleAvatar(
-                      backgroundImage: CachedNetworkImageProvider(
-                        authBloc.profilePicUrl,
-                      ),
-                    )
-                  : const Icon(
-                      Icons.person,
-                      size: 40,
-                    ),
-            ),
+                child: CircleAvatar(
+              backgroundImage: CachedNetworkImageProvider(
+                authBloc.profilePicUrl == ""
+                    ? "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                    : authBloc.profilePicUrl,
+              ),
+            )),
             decoration: const BoxDecoration(
               color: kSecondaryColor,
             ),
@@ -106,6 +102,7 @@ class SideDrawer extends StatelessWidget {
             ),
             onTap: () {
               authBloc.signOut();
+              Navigator.popUntil(context, (route) => route.isFirst);
               Navigator.pushReplacementNamed(context, OnBoardingPage.id);
             },
           ),

@@ -2,10 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:medibuddy/blocs/auth_bloc.dart';
 import 'package:medibuddy/screens/home_screen.dart';
 import 'package:medibuddy/screens/login_screen.dart';
-import 'package:provider/provider.dart';
 
 class OnBoardingPage extends StatefulWidget {
   static const id = 'onboarding_screen';
@@ -33,7 +31,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 Navigator.pushNamed(context, HomeScreen.id);
               }
             },
-          )
+          ).catchError(
+            (error) {
+              if (kDebugMode) {
+                print(error);
+              }
+            },
+          ),
         });
   }
 

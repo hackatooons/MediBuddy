@@ -30,7 +30,7 @@ class MyProgressIndicator extends StatelessWidget {
               percent: result < 0 ? 0 : result / 100,
               //percentage of circle
               center: Text(
-                result < 0 ? 'Negative :"(' : result.toStringAsFixed(2) + ' %',
+                result < 0 ? 'Negative :"(' : '${result.toStringAsFixed(2)} %',
                 style: const TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 28.0),
               ), //center text, you can set Icon as well
@@ -45,7 +45,7 @@ class MyProgressIndicator extends StatelessWidget {
                       fontFamily: 'Nunito'),
                 ),
               ), //footer text
-              backgroundColor: Color.fromARGB(
+              backgroundColor: const Color.fromARGB(
                   255, 207, 235, 232), //backround of progress bar
               circularStrokeCap: CircularStrokeCap.round,
               //if result negative then red else green //corner shape of progress bar at start/end

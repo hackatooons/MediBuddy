@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants/colors.dart';
 import 'package:flutter/foundation.dart';
-import 'package:toggle_switch/toggle_switch.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:medibuddy/services/prediction_model.dart';
 
@@ -738,6 +737,7 @@ class _BreastCancerPredictState extends State<BreastCancerPredict> {
                 PredictionModel model = PredictionModel();
                 var res = await model.getBreastPrediction(data);
                 res = double.parse(res['prediction']) / 100;
+                // ignore: use_build_context_synchronously
                 await _showFullModal(context, res);
               },
               style: TextButton.styleFrom(
